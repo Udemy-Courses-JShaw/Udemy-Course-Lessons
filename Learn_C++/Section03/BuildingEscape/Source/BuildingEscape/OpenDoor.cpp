@@ -20,14 +20,21 @@ void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// Poll Triger Vol every frame
+	if (PressurePlate->IsOverlappingActor(ActorThatOpens)) 
+	{
+		OpenDoor();
+	}
+	
+	
+}
+
+void UOpenDoor::OpenDoor() {
 	AActor *Owner = GetOwner();
 
-	FRotator NewRotation = FRotator(0.0f, -60.0f, 0.0f);
+	FRotator NewRotation = FRotator(0.0f, -60.0f, 0.0f); //Opens Door 60 Degrees
 
 	Owner->SetActorRotation(NewRotation);
-
-	// ...
-	
 }
 
 

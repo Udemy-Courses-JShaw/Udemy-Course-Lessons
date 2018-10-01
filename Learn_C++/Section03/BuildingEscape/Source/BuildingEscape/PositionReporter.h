@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "PositionReporter.generated.h"
+#include "PositionReporter.generated.h" //MUST be last on list
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )

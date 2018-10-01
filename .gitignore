@@ -88,3 +88,21 @@ Top_Down_Shooter/DerivedDataCache/*
 
 #Starter Content
 Learn_C++/Section03/BuildingEscape/Content/StarterContent/*
+
+#Keep selected Startercontent stuff
+##Models
+!C:\Udemy_Lessons\Udemy-Course-Lessons\Learn_C++\Section03\BuildingEscape\Content\StarterContent\Props\SM_TableRound.uasset
+!C:\Udemy_Lessons\Udemy-Course-Lessons\Learn_C++\Section03\BuildingEscape\Content\StarterContent\Props\SM_Chair.uasset
+!C:\Udemy_Lessons\Udemy-Course-Lessons\Learn_C++\Section03\BuildingEscape\Content\StarterContent\Props\SM_Door.uasset
+!C:\Udemy_Lessons\Udemy-Course-Lessons\Learn_C++\Section03\BuildingEscape\Content\StarterContent\Props\SM_DoorFrame.uasset
+!C:\Udemy_Lessons\Udemy-Course-Lessons\Learn_C++\Section03\BuildingEscape\Content\StarterContent\Props\Wall_Door_400x400.uasset
+!C:\Udemy_Lessons\Udemy-Course-Lessons\Learn_C++\Section03\BuildingEscape\Content\StarterContent\Props\Wall_400x400.uasset
+
+##Materials
+!C:\Udemy_Lessons\Udemy-Course-Lessons\Learn_C++\Section03\BuildingEscape\Content\StarterContent\Props\Materials\M_Chair_*.uasset
+!C:\Udemy_Lessons\Udemy-Course-Lessons\Learn_C++\Section03\BuildingEscape\Content\StarterContent\Props\Materials\M_TableRound.uasset
+!C:\Udemy_Lessons\Udemy-Course-Lessons\Learn_C++\Section03\BuildingEscape\Content\StarterContent\Props\Materials\M_Door.uasset
+!C:\Udemy_Lessons\Udemy-Course-Lessons\Learn_C++\Section03\BuildingEscape\Content\StarterContent\Props\Materials\M_Glass.uasset
+!C:\Udemy_Lessons\Udemy-Course-Lessons\Learn_C++\Section03\BuildingEscape\Content\StarterContent\Props\Materials\M_Frame.uasset
+!C:\Udemy_Lessons\Udemy-Course-Lessons\Learn_C++\Section03\BuildingEscape\Content\StarterContent\Props\Materials\M_Wood_Floor_Walnut_Polished.uasset
+
