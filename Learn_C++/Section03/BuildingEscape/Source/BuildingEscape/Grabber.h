@@ -24,6 +24,9 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+private:
 
+	FVector PlayerLocation; //Player Location X,Y,Z
+	FRotator PlayerRotation; //Plyer Rotation in degrees
 
 };

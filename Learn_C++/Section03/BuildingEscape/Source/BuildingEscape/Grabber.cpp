@@ -4,6 +4,7 @@
 #include "GameFramework/Actor.h"
 #include "GameFramework/PlayerController.h"
 #include "Engine/World.h"
+#include "Runtime/Core/Public/Math/Vector.h"
 
 
 // Sets default values for this component's properties
@@ -33,7 +34,10 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// Get Player Vew point this/every tick
-	//GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint(); //TODO Finish this
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint( PlayerLocation, PlayerRotation ); 
+
+	//To log to test
+	UE_LOG(LogTemp, Warning, TEXT("Player Info - Location: %s , Rotation: %s"), *PlayerLocation.ToString(), *PlayerRotation.ToString());
 	// Ray-cast out to reach distance
 
 	// see what we hit
