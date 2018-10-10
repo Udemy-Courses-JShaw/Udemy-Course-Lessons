@@ -1,6 +1,7 @@
 // Copyright Jarrod Shaw & Metal Muffin Ent. 2018
 
 #include "Grabber.h"
+#include "DrawDebugHelpers.h"
 #include "GameFramework/Actor.h"
 #include "GameFramework/PlayerController.h"
 #include "Engine/World.h"
@@ -34,12 +35,34 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// Get Player Vew point this/every tick
-	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint( PlayerLocation, PlayerRotation ); 
-
-	//To log to test
-	UE_LOG(LogTemp, Warning, TEXT("Player Info - Location: %s , Rotation: %s"), *PlayerLocation.ToString(), *PlayerRotation.ToString());
-	// Ray-cast out to reach distance
-
+	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint( PlayerViewPortLocation, PlayerViewPortRotation ); 
+	FVector LineTraceEnd = PlayerViewPortLocation + PlayerViewPortRotation.Vector() *Reach;
+	DrawDebugLine(
+		GetWorld(),
+		PlayerViewPortLocation,
+		LineTraceEnd,
+		FColor(255, 0, 0),
+		false,
+		0.f,
+		0.f,
+		10.f
+	);
+	// Setup Params
+	FCollisionQueryParams TraceParameters(FName(TEXT("")), false, GetOwner());
+	/// Ray-cast out to reach distance
+	FHitResult Hit;
+	GetWorld()->LineTraceSingleByObjectType(
+		Hit,  //OUT !!
+		PlayerViewPortLocation,
+		LineTraceEnd,
+		FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody),
+		TraceParameters
+	);
+	AActor* ActorHit = Hit.GetActor();
+	if (ActorHit)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Actor HIT: %s"), *(ActorHit->GetName()));
+	}
 	// see what we hit
 }
 

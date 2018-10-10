@@ -26,7 +26,8 @@ public:
 
 private:
 
-	FVector PlayerLocation; //Player Location X,Y,Z
-	FRotator PlayerRotation; //Plyer Rotation in degrees
+	FVector PlayerViewPortLocation; //Player Location X,Y,Z
+	FRotator PlayerViewPortRotation; //Plyer Rotation in degrees
+	float Reach = 100.f; //Reach vector
 
 };
