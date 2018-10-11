@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Components/InputComponent.h"
+#include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "Grabber.generated.h" //MUST be last on list!!
 
 
@@ -26,8 +28,22 @@ public:
 
 private:
 
-	FVector PlayerViewPortLocation; //Player Location X,Y,Z
-	FRotator PlayerViewPortRotation; //Plyer Rotation in degrees
 	float Reach = 100.f; //Reach vector
 
+	UPhysicsHandleComponent* PhysicsHandle = nullptr;
+
+	UInputComponent* InputComponent = nullptr;
+
+	//Ray-cast and grab whats in reach
+	void Grab();
+	void GrabRelease();
+
+	//Searches for a Physics Handle
+	void FindPhysicsHandleComponent();
+
+	//Setup (assumed) attached input component
+	void SetupInputComponent();
+
+	// Return hit for first Physics Body in reach
+	FHitResult GetFirstPhysicsBodyInReach() const; 
 };
