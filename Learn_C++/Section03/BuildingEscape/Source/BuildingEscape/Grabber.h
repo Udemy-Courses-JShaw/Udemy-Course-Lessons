@@ -29,6 +29,8 @@ public:
 private:
 
 	float Reach = 100.f; //Reach vector
+	FVector PlayerViewPortLocation; //Player Location X,Y,Z
+	FRotator PlayerViewPortRotation;  //Player Rotation in degrees
 
 	UPhysicsHandleComponent* PhysicsHandle = nullptr;
 
@@ -45,5 +47,7 @@ private:
 	void SetupInputComponent();
 
 	// Return hit for first Physics Body in reach
-	FHitResult GetFirstPhysicsBodyInReach() const; 
+	FHitResult GetFirstPhysicsBodyInReach(); 
+
+	FVector GetLineTraceEnd();
 };
