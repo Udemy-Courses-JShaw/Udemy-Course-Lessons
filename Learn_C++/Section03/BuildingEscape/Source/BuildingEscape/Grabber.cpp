@@ -34,7 +34,8 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	GetWorld()->GetFirstPlayerController()->GetPlayerViewPoint( PlayerViewPortLocation, PlayerViewPortRotation ); 
 	FVector LineTraceEnd = PlayerViewPortLocation + PlayerViewPortRotation.Vector() *Reach;
 	
-	// if Physics Handle is atached
+	// if Physics Handle is attached
+	if (!PhysicsHandle) { return; }
 	if (PhysicsHandle->GrabbedComponent)
 	{
 		//Move the object we are holding
@@ -61,6 +62,10 @@ void UGrabber::SetupInputComponent()
 		InputComponent->BindAction("Grab", IE_Pressed, this, &UGrabber::Grab);
 		InputComponent->BindAction("Grab", IE_Released, this, &UGrabber::GrabRelease);
 	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("%s missing Physics Handle Component!!"), *GetOwner()->GetName())
+	}
 }
 
 void UGrabber::Grab()
@@ -73,6 +78,7 @@ void UGrabber::Grab()
 	/// If we hit something attach a physic handle
 	if (ActorHit)
 	{
+		if (!PhysicsHandle) { return; }
 		PhysicsHandle->GrabComponentAtLocationWithRotation(
 			ComponentToGrab,
 			NAME_None,

@@ -36,18 +36,18 @@ private:
 	float DoorOpenAngle = -60.0f;
 
 	UPROPERTY(EditAnywhere)
-	ATriggerVolume* PressurePlate;
+	ATriggerVolume* PressurePlate = nullptr;
 
 	UPROPERTY(EditAnywhere)
 	float DoorCloseDelay = 0.4f;
 
 	UPROPERTY(EditAnywhere)
 	float TriggerMass = 49.9f; //min mass to trigger doors
-	float OverMass = 54.f; //Max weight of plate; doors will colse if over
 	
-	float DoorLastOpenTime;
+	float DoorLastOpenTime = 0.f;
 
-	AActor *Owner = GetOwner(); //Owner for Door
+	//Owner for Door
+	AActor *Owner = nullptr; 
 
 	float TotalMassOfActorsOnPressurePlate();
 };
