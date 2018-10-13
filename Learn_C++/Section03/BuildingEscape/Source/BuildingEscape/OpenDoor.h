@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Components/PrimitiveComponent.h"
 #include "Engine/TriggerVolume.h"
 #include "Engine/World.h"
 #include "GameFramework/PlayerController.h"
@@ -40,8 +41,13 @@ private:
 	UPROPERTY(EditAnywhere)
 	float DoorCloseDelay = 0.4f;
 
+	UPROPERTY(EditAnywhere)
+	float TriggerMass = 49.9f; //min mass to trigger doors
+	float OverMass = 54.f; //Max weight of plate; doors will colse if over
+	
 	float DoorLastOpenTime;
 
-	AActor* ActorThatOpens;
 	AActor *Owner = GetOwner(); //Owner for Door
+
+	float TotalMassOfActorsOnPressurePlate();
 };
